@@ -13,3 +13,5 @@ public class Clase1 {
     return p1; 
  }
 }
+
+//O programa visualiza os seguintes números: 8 9 9 10 13 14.
