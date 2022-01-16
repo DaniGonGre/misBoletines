@@ -15,7 +15,7 @@ public class Boletin18 {
             
             
         }catch (TemperaturaErradaExcepcion ex){
-            
+            System.out.println("Error");
         }
 
     }
