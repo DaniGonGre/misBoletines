@@ -3,25 +3,22 @@ package boletin21_3;
 import javax.swing.JOptionPane;
 
 public class ArrayNomes {
- 
+    
     public static float[] crearArray(float nota[], String nome[]){
         
         for(int i=0; i<nota.length; i++){
             nota[i] = (float) (Math.random()*10);
             nome[0]="pedro"; nome[1]="jose"; nome[2]="juan"; nome[3]="nahum"; 
-            nome[4]="olalla"; nome[5]="carmen";          
+            nome[4]="olalla";          
         }
         return nota;
     }
     
     public static void amosar(float nota[], String nome[]){
-        
-        for(int i=0; i<nota.length; i++){
-            if(nome.equals(nome[i])){
-                System.out.println(nome + "-->" + nota[i]);
-                break;
-            }
-        }
+    
+       for(int i=0; i<nota.length; i++ ){
+           System.out.println(nome[i] + " --> "+ nota[i]);
+       }
     }
     
     public static int consultarNota(String nome[], float nota[] ){
@@ -58,16 +55,16 @@ public class ArrayNomes {
                         nome[j]=auxNome;
                     }
                 }
-                System.out.println("O alumno " + nome[i] + "sacou un " + nota[i]);
+                System.out.println("O alumno " + nome[i] + " sacou un " + nota[i]);
             } 
         }
     
         public static void aprobar(float nota[], String nome[]){
         int aprobado=0;
         for (int k=0; k<nota.length; k++ ){
-            if(nota[k]<5){
+            if(nota[k]>=5){
                 aprobado++;
-                System.out.println("Os seguintes alumnos aprobaron" + nome[k]);
+                System.out.println("Os seguintes alumnos aprobaron: " + nome[k]);
             }
         }
         
