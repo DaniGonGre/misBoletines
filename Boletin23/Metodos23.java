@@ -2,18 +2,17 @@ package boletin23;
 
 import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
-import static sun.security.krb5.Confounder.bytes;
 
 public class Metodos23 {
- 
-      public static void lonxTexto(){
-       
+
+    public static void lonxTexto(){
+        
         String texto = "Esto é  Java!";
         //int lonx = texto.length();
-       
+        
         System.out.println("A lonxitude é de "+texto.length()+" caracteres.");
     }
-   
+    
     public static void desmTexto(){
         String texto = "Java";
         String split[] = texto.split("");
@@ -21,7 +20,7 @@ public class Metodos23 {
             System.out.println(split[i]);
         }
     }
-   
+    
     public static void invertTexto(){
         String texto = "Java desde 0";
         String invertida = "";
@@ -30,12 +29,12 @@ public class Metodos23 {
         }
         System.out.println(invertida);
     }
-   
+    
     public static void senEspazos(){
         String texto = "James Gosling Created Xava";
         System.out.println(texto.replaceAll("\\s", ""));
     }
-   
+    
     public static void contarVeC(){
         String texto = "java java java";
         String sinEsp = texto.replaceAll("\\s", "");
@@ -45,28 +44,27 @@ public class Metodos23 {
         int consonantes = sinEsp2.replaceAll("[qwrtypsdfghjklñzxcvbnm]","").length();
         System.out.println("A frase contén "+consonantes+" consonantes");
     }
-   
+    
     public static void divTexto(){
         String texto = "www.javadesde0.com";
-        String[] parte = texto.split("d", 18);
-        StringTokenizer divTexto = new StringTokenizer(texto, "-");
-        while (divTexto.hasMoreTokens())
-        System.out.println(divTexto.nextToken());
-    } 
-   
+        String parte = texto.substring(0, 8);
+        String parte2 = texto.substring(8, 18);
+        System.out.println(parte + "\n" + parte2);
+    }  
+    
     public static void transMai(){
         String textoMin = "javeros";
         String textoMai = textoMin.toUpperCase();
         System.out.println("Transformación a maiúsculas: "+textoMai);
         System.out.println("Transformación a minúsculas: "+textoMai.toLowerCase());
     }
-   
+    
     public static void compTexto(){
         String text1 = "Java";
         String text2 = "JavaScript";
         if (text1.compareTo(text2) == 0)
             System.out.println("Os textos son iguais.");
-        else
+        else 
             System.out.println("Os textos non son iguais.");
     }
     
@@ -104,6 +102,5 @@ public class Metodos23 {
         }
         System.out.println("Nº letras: " + letra + "\nNº de díxitos: " + dixitos + "\nNº de espazos: " + espazos);
     }
-   
-    
+
 }
