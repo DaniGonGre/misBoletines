@@ -54,7 +54,7 @@ public class Libreria {
         }
     
         public static void consultarLibro(ArrayList<Libros>lista){
-        int cod = lerDatos.lerInt("Introduce o ISBN do libro que queiras consultar: ");
+        String cod = lerDatos.lerString("Introduce o ISBN do libro que queiras consultar: ");
         System.out.println("Libro con el ISBN: " + cod);
         for(int i=0; i<lista.size(); i++){
             if (lista.get(i).getISBN().equals(cod))
