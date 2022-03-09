@@ -6,10 +6,6 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class Metodos25 {
-   
-    Scanner sc;
-    PrintWriter esc;
-    BufferedWriter buff;
     
     public static void engadirLibro (File fich){
         try {
