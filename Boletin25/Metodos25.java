@@ -22,23 +22,20 @@ public class Metodos25 {
    
     public void consultarLibro(File fich){
         ArrayList<Libros> lista = visualizarDatos(fich, " ");
-        
         String nom = JOptionPane.showInputDialog("Introduce o nome do libro que queiras consultar: ");
         System.out.println("Libro co nome: " + nom);
         for(Libros l : lista){
             if (l.getNome().equals(nom)){
                 System.out.println("Prezo= "+l.getPrezo()+"€");
             }else
-                System.out.println("Non se atopou o libro co nome: " + nom);
-           
+                System.out.println("Non se atopou o libro co nome: " + nom);         
         }
     }
    
     public ArrayList<Libros> visualizarDatos(File fich, String del){
         ArrayList<Libros> lista = new ArrayList<>();
         String c = null;
-        Libros libro;
-       
+        Libros libro;      
         try {
             Scanner sc = new Scanner(fich);
             while (sc.hasNextLine()){
@@ -51,7 +48,6 @@ public class Metodos25 {
             }
         } catch (FileNotFoundException ex) {
             System.out.println("Error");        }
-        
         return lista;    
     }
     
