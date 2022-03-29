@@ -61,8 +61,6 @@ public class InterfazGrafica implements ActionListener{
         boton2.addActionListener(this);
     }
     
-    //cuando premamos o boton escribir 
-    //cando premamos o boton premar deixar limpo o área de texto
         @Override
     public void actionPerformed(ActionEvent e) {
         Object ob = e.getSource();
