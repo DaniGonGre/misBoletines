@@ -1,14 +1,17 @@
 package boletin26;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class InterfazGrafica {
+public class InterfazGrafica implements ActionListener{
 
     JFrame marco;
     JPanel panel;
     JButton boton1, boton2;
-    JTextField liñaTexto1, liñaTexto2;
+    JTextField liñaTexto1;
+    JPasswordField liñaTexto2;
     JLabel etiqueta1, etiqueta2;
     JTextArea areaTexto;
     
@@ -20,7 +23,7 @@ public class InterfazGrafica {
         boton1 = new JButton("PREMER");
         boton2 = new JButton("LIMPAR");
         liñaTexto1 = new JTextField();
-        liñaTexto2 = new JTextField();
+        liñaTexto2 = new JPasswordField();
         etiqueta1 = new JLabel("NOME");
         etiqueta2 = new JLabel("PASSWORD");
         areaTexto = new JTextArea();
@@ -53,5 +56,19 @@ public class InterfazGrafica {
         panel.add(liñaTexto2);
         marco.add(panel);
         this.pecharVentana();
+        
+        boton1.addActionListener(this);
+        boton2.addActionListener(this);
     }
+    
+    //cuando premamos o boton escribir 
+    //cando premamos o boton premar deixar limpo o área de texto
+        @Override
+    public void actionPerformed(ActionEvent e) {
+        Object ob = e.getSource();
+        if (ob==boton1)
+            areaTexto.setText("Hola " + liñaTexto1.getText());
+        else
+            areaTexto.setText(" ");
+            }
 }
