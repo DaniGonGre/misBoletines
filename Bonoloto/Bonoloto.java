@@ -4,17 +4,25 @@
  */
 package extbonoloto;
 
+import java.awt.Color;
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  *
  * @author dam1
  */
 public class Bonoloto extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form Bonoloto
      */
     public Bonoloto() {
         initComponents();
+        aPersona.setEditable(false);
+        aMaquina.setEditable(false);
+        aResultado.setEditable(false);
     }
 
     /**
@@ -84,6 +92,7 @@ public class Bonoloto extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         aResultado = new javax.swing.JTextArea();
         bValidar = new javax.swing.JButton();
+        bReset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BONOLOTO");
@@ -117,6 +126,9 @@ public class Bonoloto extends javax.swing.JFrame {
         });
 
         b1.setText("1");
+        b1.setMaximumSize(null);
+        b1.setMinimumSize(null);
+        b1.setPreferredSize(null);
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -434,17 +446,32 @@ public class Bonoloto extends javax.swing.JFrame {
         aPersona.setColumns(20);
         aPersona.setForeground(java.awt.Color.black);
         aPersona.setRows(5);
+        aPersona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                aPersonaKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(aPersona);
 
         aMaquina.setColumns(20);
         aMaquina.setForeground(java.awt.Color.black);
         aMaquina.setRows(5);
+        aMaquina.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                aMaquinaKeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(aMaquina);
 
         aResultado.setColumns(20);
         aResultado.setForeground(java.awt.Color.black);
         aResultado.setLineWrap(true);
         aResultado.setRows(5);
+        aResultado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                aResultadoKeyTyped(evt);
+            }
+        });
         jScrollPane3.setViewportView(aResultado);
 
         bValidar.setText("Validar");
@@ -479,72 +506,83 @@ public class Bonoloto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        bReset.setText("RESET");
+        bReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bResetActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(bReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(b22)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b24)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b25)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b26)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b27))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(b15)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b16)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b18)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b20))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(b29)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b30)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b32)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b33)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b34))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(b36)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b37)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b38)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b39)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b40)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(b41)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(b22)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b23)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b25)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b26)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b27))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(b15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b16)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b17)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b20))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(b29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b31)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b32)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b33)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b34))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(b36)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b37)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b38)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b39)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b40)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b41)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(b1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(b8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(b2, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-                                    .addComponent(b9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(b9, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                    .addComponent(b2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(b3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -555,15 +593,13 @@ public class Bonoloto extends javax.swing.JFrame {
                                     .addComponent(b11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(b12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(b13))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(b5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(b5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(b12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(b13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(b6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(6, 6, 6)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(b14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(b28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -571,7 +607,7 @@ public class Bonoloto extends javax.swing.JFrame {
                             .addComponent(b35, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(b42, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(b7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(b43)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(b44)
@@ -585,7 +621,7 @@ public class Bonoloto extends javax.swing.JFrame {
                         .addComponent(b48)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(b49))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
@@ -607,21 +643,21 @@ public class Bonoloto extends javax.swing.JFrame {
                         .addComponent(b42))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(b1)
                             .addComponent(b2)
                             .addComponent(b3)
                             .addComponent(b4)
                             .addComponent(b5)
                             .addComponent(b6)
-                            .addComponent(b7))
+                            .addComponent(b7)
+                            .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(b8)
                             .addComponent(b9)
                             .addComponent(b10)
                             .addComponent(b11)
                             .addComponent(b12)
-                            .addComponent(b13))
+                            .addComponent(b13)
+                            .addComponent(b8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(b15)
@@ -664,7 +700,9 @@ public class Bonoloto extends javax.swing.JFrame {
                         .addComponent(b46)
                         .addComponent(b47)
                         .addComponent(b48)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(bReset)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -679,227 +717,379 @@ public class Bonoloto extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        aPersona.setText(aPersona.getText()+"2-");   
+        aPersona.setText(aPersona.getText()+"2   ");
+        b2.setBackground(Color.green);        
     }//GEN-LAST:event_b2ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        aPersona.setText(aPersona.getText()+"3-");   
+        aPersona.setText(aPersona.getText()+"3   ");   
+        b3.setBackground(Color.green);        
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        aPersona.setText(aPersona.getText()+"1-");   
+        aPersona.setText(aPersona.getText()+"1   "); 
+        b1.setBackground(Color.green);        
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        aPersona.setText(aPersona.getText()+"6-");   
+        aPersona.setText(aPersona.getText()+"6   ");   
+        b6.setBackground(Color.green);        
     }//GEN-LAST:event_b6ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        aPersona.setText(aPersona.getText()+"5-");   
+        aPersona.setText(aPersona.getText()+"5   ");
+        b5.setBackground(Color.green);        
     }//GEN-LAST:event_b5ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
-        aPersona.setText(aPersona.getText()+"4-");   
+        aPersona.setText(aPersona.getText()+"4   ");   
+        b4.setBackground(Color.green);        
     }//GEN-LAST:event_b4ActionPerformed
 
     private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
-        aPersona.setText(aPersona.getText()+"9-");   
+        aPersona.setText(aPersona.getText()+"9   "); 
+        b9.setBackground(Color.green);        
     }//GEN-LAST:event_b9ActionPerformed
 
     private void b10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b10ActionPerformed
-        aPersona.setText(aPersona.getText()+"10-");   
+        aPersona.setText(aPersona.getText()+"10   ");
+        b10.setBackground(Color.green);        
     }//GEN-LAST:event_b10ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        aPersona.setText(aPersona.getText()+"8-");   
+        aPersona.setText(aPersona.getText()+"8   "); 
+        b8.setBackground(Color.green);        
     }//GEN-LAST:event_b8ActionPerformed
 
     private void b13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b13ActionPerformed
-        aPersona.setText(aPersona.getText()+"13-");   
+        aPersona.setText(aPersona.getText()+"13   ");  
+        b13.setBackground(Color.green);        
     }//GEN-LAST:event_b13ActionPerformed
 
     private void b12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b12ActionPerformed
-        aPersona.setText(aPersona.getText()+"12-");   
+        aPersona.setText(aPersona.getText()+"12   ");   
+        b12.setBackground(Color.green);
     }//GEN-LAST:event_b12ActionPerformed
 
     private void b11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b11ActionPerformed
-        aPersona.setText(aPersona.getText()+"11-");   
+        aPersona.setText(aPersona.getText()+"11   ");
+        b11.setBackground(Color.green);        
     }//GEN-LAST:event_b11ActionPerformed
 
     private void b16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b16ActionPerformed
-        aPersona.setText(aPersona.getText()+"16-");   
+        aPersona.setText(aPersona.getText()+"16   "); 
+        b16.setBackground(Color.green);
     }//GEN-LAST:event_b16ActionPerformed
 
     private void b17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b17ActionPerformed
-        aPersona.setText(aPersona.getText()+"17-");   
+        aPersona.setText(aPersona.getText()+"17   ");  
+        b17.setBackground(Color.green);        
     }//GEN-LAST:event_b17ActionPerformed
 
     private void b15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b15ActionPerformed
-        aPersona.setText(aPersona.getText()+"15-");   
+        aPersona.setText(aPersona.getText()+"15   "); 
+        b15.setBackground(Color.green);        
     }//GEN-LAST:event_b15ActionPerformed
 
     private void b20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b20ActionPerformed
-        aPersona.setText(aPersona.getText()+"20-");   
+        aPersona.setText(aPersona.getText()+"20   "); 
+        b20.setBackground(Color.green);
     }//GEN-LAST:event_b20ActionPerformed
 
     private void b19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b19ActionPerformed
-        aPersona.setText(aPersona.getText()+"19-");   
+        aPersona.setText(aPersona.getText()+"19   ");   
+        b19.setBackground(Color.green);
     }//GEN-LAST:event_b19ActionPerformed
 
     private void b18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b18ActionPerformed
-        aPersona.setText(aPersona.getText()+"18-");   
+        aPersona.setText(aPersona.getText()+"18   ");  
+        b18.setBackground(Color.green);
     }//GEN-LAST:event_b18ActionPerformed
 
     private void b23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b23ActionPerformed
-        aPersona.setText(aPersona.getText()+"23-");   
+        aPersona.setText(aPersona.getText()+"23   ");
+        b23.setBackground(Color.green);        
     }//GEN-LAST:event_b23ActionPerformed
 
     private void b24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b24ActionPerformed
-        aPersona.setText(aPersona.getText()+"24-");   
+        aPersona.setText(aPersona.getText()+"24   ");
+        b24.setBackground(Color.green);
     }//GEN-LAST:event_b24ActionPerformed
 
     private void b22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b22ActionPerformed
-        aPersona.setText(aPersona.getText()+"22-");   
+        aPersona.setText(aPersona.getText()+"22   ");   
+        b22.setBackground(Color.green);
     }//GEN-LAST:event_b22ActionPerformed
 
     private void b27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b27ActionPerformed
-        aPersona.setText(aPersona.getText()+"27-");   
+        aPersona.setText(aPersona.getText()+"27   "); 
+        b27.setBackground(Color.green);        
     }//GEN-LAST:event_b27ActionPerformed
 
     private void b26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b26ActionPerformed
-        aPersona.setText(aPersona.getText()+"26-");   
+        aPersona.setText(aPersona.getText()+"26   ");  
+        b26.setBackground(Color.green);
     }//GEN-LAST:event_b26ActionPerformed
 
     private void b25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b25ActionPerformed
-        aPersona.setText(aPersona.getText()+"25-");   
+        aPersona.setText(aPersona.getText()+"25   "); 
+        b25.setBackground(Color.green);
     }//GEN-LAST:event_b25ActionPerformed
 
     private void b30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b30ActionPerformed
-        aPersona.setText(aPersona.getText()+"30-");   
+        aPersona.setText(aPersona.getText()+"30   "); 
+        b30.setBackground(Color.green);
     }//GEN-LAST:event_b30ActionPerformed
 
     private void b31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b31ActionPerformed
-        aPersona.setText(aPersona.getText()+"31-");   
+        aPersona.setText(aPersona.getText()+"31   "); 
+        b31.setBackground(Color.green);        
     }//GEN-LAST:event_b31ActionPerformed
 
     private void b29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b29ActionPerformed
-        aPersona.setText(aPersona.getText()+"29-");   
+        aPersona.setText(aPersona.getText()+"29   "); 
+        b29.setBackground(Color.green);        
     }//GEN-LAST:event_b29ActionPerformed
 
     private void b34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b34ActionPerformed
-        aPersona.setText(aPersona.getText()+"34-");   
+        aPersona.setText(aPersona.getText()+"34   ");   
+        b34.setBackground(Color.green); 
     }//GEN-LAST:event_b34ActionPerformed
 
     private void b33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b33ActionPerformed
-        aPersona.setText(aPersona.getText()+"33-");   
+        aPersona.setText(aPersona.getText()+"33   ");   
+        b33.setBackground(Color.green);        
     }//GEN-LAST:event_b33ActionPerformed
 
     private void b32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b32ActionPerformed
-        aPersona.setText(aPersona.getText()+"32-");   
+        aPersona.setText(aPersona.getText()+"32   "); 
+        b32.setBackground(Color.green);        
     }//GEN-LAST:event_b32ActionPerformed
 
     private void b37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b37ActionPerformed
-        aPersona.setText(aPersona.getText()+"37-");   
+        aPersona.setText(aPersona.getText()+"37   "); 
+        b37.setBackground(Color.green);        
     }//GEN-LAST:event_b37ActionPerformed
 
     private void b38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b38ActionPerformed
-        aPersona.setText(aPersona.getText()+"38-");   
+        aPersona.setText(aPersona.getText()+"38   ");   
+        b38.setBackground(Color.green);        
     }//GEN-LAST:event_b38ActionPerformed
 
     private void b36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b36ActionPerformed
-        aPersona.setText(aPersona.getText()+"36-");   
+        aPersona.setText(aPersona.getText()+"36   "); 
+        b36.setBackground(Color.green);        
     }//GEN-LAST:event_b36ActionPerformed
 
     private void b41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b41ActionPerformed
-        aPersona.setText(aPersona.getText()+"41-");   
+        aPersona.setText(aPersona.getText()+"41   ");
+        b41.setBackground(Color.green);        
     }//GEN-LAST:event_b41ActionPerformed
 
     private void b40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b40ActionPerformed
-        aPersona.setText(aPersona.getText()+"40-");   
+        aPersona.setText(aPersona.getText()+"40   "); 
+        b40.setBackground(Color.green);        
     }//GEN-LAST:event_b40ActionPerformed
 
     private void b39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b39ActionPerformed
-        aPersona.setText(aPersona.getText()+"39-");   
+        aPersona.setText(aPersona.getText()+"39   "); 
+        b39.setBackground(Color.green);        
     }//GEN-LAST:event_b39ActionPerformed
 
     private void b28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b28ActionPerformed
-        aPersona.setText(aPersona.getText()+"28-");   
+        aPersona.setText(aPersona.getText()+"28   "); 
+        b28.setBackground(Color.green);        
     }//GEN-LAST:event_b28ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
-        aPersona.setText(aPersona.getText()+"7-");   
+        aPersona.setText(aPersona.getText()+"7   ");
+        b7.setBackground(Color.green); 
     }//GEN-LAST:event_b7ActionPerformed
 
     private void b35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b35ActionPerformed
-        aPersona.setText(aPersona.getText()+"35-");   
+        aPersona.setText(aPersona.getText()+"35   "); 
+        b35.setBackground(Color.green);        
     }//GEN-LAST:event_b35ActionPerformed
 
     private void b14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b14ActionPerformed
-        aPersona.setText(aPersona.getText()+"14-");   
+        aPersona.setText(aPersona.getText()+"14   ");   
+        b14.setBackground(Color.green);        
     }//GEN-LAST:event_b14ActionPerformed
 
     private void b42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b42ActionPerformed
-        aPersona.setText(aPersona.getText()+"42-");   
+        aPersona.setText(aPersona.getText()+"42   "); 
+        b42.setBackground(Color.green);        
     }//GEN-LAST:event_b42ActionPerformed
 
     private void b21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b21ActionPerformed
-        aPersona.setText(aPersona.getText()+"21-");   
+        aPersona.setText(aPersona.getText()+"21   ");   
+        b21.setBackground(Color.green);        
     }//GEN-LAST:event_b21ActionPerformed
 
     private void b49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b49ActionPerformed
-        aPersona.setText(aPersona.getText()+"49-");   
+        aPersona.setText(aPersona.getText()+"49   ");   
+        b49.setBackground(Color.green);
     }//GEN-LAST:event_b49ActionPerformed
 
     private void b44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b44ActionPerformed
-        aPersona.setText(aPersona.getText()+"44-");   
+        aPersona.setText(aPersona.getText()+"44   ");  
+        b44.setBackground(Color.green);        
     }//GEN-LAST:event_b44ActionPerformed
 
     private void b45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b45ActionPerformed
-        aPersona.setText(aPersona.getText()+"45-");   
+        aPersona.setText(aPersona.getText()+"45   ");   
+        b45.setBackground(Color.green);        
     }//GEN-LAST:event_b45ActionPerformed
 
     private void b43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b43ActionPerformed
-        aPersona.setText(aPersona.getText()+"43-");   
+        aPersona.setText(aPersona.getText()+"43   ");   
+        b43.setBackground(Color.green);
     }//GEN-LAST:event_b43ActionPerformed
 
     private void b48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b48ActionPerformed
-        aPersona.setText(aPersona.getText()+"48-");   
+        aPersona.setText(aPersona.getText()+"48   ");   
+        b48.setBackground(Color.green);
     }//GEN-LAST:event_b48ActionPerformed
 
     private void b47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b47ActionPerformed
-        aPersona.setText(aPersona.getText()+"47-");   
+        aPersona.setText(aPersona.getText()+"47   "); 
+        b47.setBackground(Color.green);
     }//GEN-LAST:event_b47ActionPerformed
 
     private void b46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b46ActionPerformed
-        aPersona.setText(aPersona.getText()+"46-");   
+        aPersona.setText(aPersona.getText()+"46   ");   
+        b46.setBackground(Color.green);
     }//GEN-LAST:event_b46ActionPerformed
 
     private void bValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidarActionPerformed
-        String numAleatorios = 
-                (int) (Math.random() * 49 + 1)+"-"+
-                (int) (Math.random() * 49 + 1)+"-"+
-                (int) (Math.random() * 49 + 1)+"-"+
-                (int) (Math.random() * 49 + 1)+"-"+
-                (int) (Math.random() * 49 + 1)+"-"+
-                (int) (Math.random() * 49 + 1)+"-";
-        String numPersona = aPersona.getText();
-        aMaquina.setText(numAleatorios);
         
-        if (numPersona.equals(numAleatorios)){
-            aResultado.setText("¡GANASTE!");
+        //números aleatorios con repetición
+        /*String numAleatorios = 
+                (int) (Math.random() * 49 + 1)+"   "+
+                (int) (Math.random() * 49 + 1)+"   "+
+                (int) (Math.random() * 49 + 1)+"   "+
+                (int) (Math.random() * 49 + 1)+"   "+
+                (int) (Math.random() * 49 + 1)+"   "+
+                (int) (Math.random() * 49 + 1)+"   ";*/
+        
+        //números aleatorios sin repetición
+        Random rn = new Random();
+            int[] numeros = new int[6];
+            boolean descartado;
+		for (int i = 0; i < numeros.length; i++){
+                    do{
+                        int numeroRandom = rn.nextInt(49) + 1;
+			descartado = false;	
+			for (int numVector: numeros){
+                            if (numVector == numeroRandom){
+                                descartado = true;
+				break;
+				}
+                        }
+                        if (!descartado)
+                        numeros[i] = numeroRandom;
+                    }while (descartado);
+		}
+                
+            //String numR = Arrays.toString(numeros);
+            String datosArray = "";
+            for (int elemento: numeros) {
+                String numFinal = datosArray += elemento + "   ";                
+                aMaquina.setText(numFinal);
+                
+            }                                                    
+		        
+        String numPersona = aPersona.getText();
+        
+        if (numPersona.equals(aMaquina.getText())){
+            aResultado.setText("¡GANASTE 3.100.000 €!");
         } else {
             aResultado.setText("Perdiste, vuelve a intentarlo");
         }
         
     }//GEN-LAST:event_bValidarActionPerformed
+
+    private void bResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetActionPerformed
+        aPersona.setText("");
+        aMaquina.setText("");
+        aResultado.setText("");
+        
+        Color colorFondo = jPanel1.getBackground();
+        b1.setBackground(colorFondo);
+        b2.setBackground(colorFondo);
+        b3.setBackground(colorFondo);
+        b4.setBackground(colorFondo);
+        b5.setBackground(colorFondo);
+        b6.setBackground(colorFondo);
+        b7.setBackground(colorFondo);
+        b8.setBackground(colorFondo);
+        b9.setBackground(colorFondo);
+        b10.setBackground(colorFondo);
+        b11.setBackground(colorFondo);
+        b12.setBackground(colorFondo);
+        b13.setBackground(colorFondo);
+        b14.setBackground(colorFondo);
+        b15.setBackground(colorFondo);
+        b16.setBackground(colorFondo);
+        b17.setBackground(colorFondo);
+        b18.setBackground(colorFondo);
+        b19.setBackground(colorFondo);
+        b20.setBackground(colorFondo);
+        b21.setBackground(colorFondo);
+        b22.setBackground(colorFondo);
+        b23.setBackground(colorFondo);
+        b24.setBackground(colorFondo);
+        b25.setBackground(colorFondo);
+        b26.setBackground(colorFondo);
+        b27.setBackground(colorFondo);
+        b28.setBackground(colorFondo);
+        b29.setBackground(colorFondo);
+        b30.setBackground(colorFondo);
+        b31.setBackground(colorFondo);
+        b32.setBackground(colorFondo);
+        b33.setBackground(colorFondo);
+        b34.setBackground(colorFondo);
+        b35.setBackground(colorFondo);
+        b36.setBackground(colorFondo);
+        b37.setBackground(colorFondo);
+        b38.setBackground(colorFondo);
+        b39.setBackground(colorFondo);
+        b40.setBackground(colorFondo);
+        b41.setBackground(colorFondo);
+        b42.setBackground(colorFondo);
+        b43.setBackground(colorFondo);
+        b44.setBackground(colorFondo);
+        b45.setBackground(colorFondo);
+        b46.setBackground(colorFondo);
+        b47.setBackground(colorFondo);
+        b48.setBackground(colorFondo);
+        b49.setBackground(colorFondo);
+
+    }//GEN-LAST:event_bResetActionPerformed
+
+    private void aPersonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_aPersonaKeyTyped
+        if(aPersona.getText().length() < 1){
+            evt.consume();
+        }
+    }//GEN-LAST:event_aPersonaKeyTyped
+
+    private void aMaquinaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_aMaquinaKeyTyped
+        if(aMaquina.getText().length() < 1){
+            evt.consume();
+    }    }//GEN-LAST:event_aMaquinaKeyTyped
+
+    private void aResultadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_aResultadoKeyTyped
+        if(aResultado.getText().length() < 1){
+            evt.consume();
+        }    }//GEN-LAST:event_aResultadoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -934,8 +1124,7 @@ public class Bonoloto extends javax.swing.JFrame {
                 new Bonoloto().setVisible(true);
             }
         });
-    }
-
+    }    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea aMaquina;
     private javax.swing.JTextArea aPersona;
@@ -989,6 +1178,7 @@ public class Bonoloto extends javax.swing.JFrame {
     private javax.swing.JButton b7;
     private javax.swing.JButton b8;
     private javax.swing.JButton b9;
+    private javax.swing.JButton bReset;
     private javax.swing.JButton bValidar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
